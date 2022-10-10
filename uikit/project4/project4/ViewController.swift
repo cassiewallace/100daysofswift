@@ -30,8 +30,10 @@ class ViewController: UIViewController, WKNavigationDelegate {
         
         let spacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         let refresh = UIBarButtonItem(barButtonSystemItem: .refresh, target: webView, action: #selector(webView.reload))
+        let back = UIBarButtonItem(title: nil, image: UIImage(systemName: "chevron.backward"), target: webView, action: #selector(webView.goBack))
+        let forward = UIBarButtonItem(title: nil, image: UIImage(systemName: "chevron.forward"), target: webView, action: #selector(webView.goForward))
         
-        toolbarItems = [progressButton, spacer, refresh]
+        toolbarItems = [back, forward, spacer, progressButton, spacer, refresh]
         navigationController?.isToolbarHidden = false
         
         let url = URL(string: "https://" + websites[0])!
@@ -76,8 +78,13 @@ class ViewController: UIViewController, WKNavigationDelegate {
                 }
             }
         }
+        
+        let ac = UIAlertController(title: "Website not allowed", message: "Sorry, that website isn't on the approved list.", preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "OK", style: .default))
+        present(ac, animated: true)
 
         decisionHandler(.cancel)
+        
     }
     
 }
