@@ -13,7 +13,7 @@ class ViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        title = "Visit The Internet"
+        title = "Easy Browser"
         navigationController?.navigationBar.prefersLargeTitles = true
 
         websites = ["apple.com", "hackingwithswift.com"]
