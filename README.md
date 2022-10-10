@@ -8,3 +8,4 @@ Code and projects for [Hacking With Swift's 100 Days of Swift](https://www.hacki
 - **Project 2:** Guess the Flag
 - **Project 3:** Social Media: _See Projects 1 and 2_
 - **Project 4:** Easy Browser
+- **Project 5:** Word Scramble
