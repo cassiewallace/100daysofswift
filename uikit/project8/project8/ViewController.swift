@@ -21,6 +21,7 @@ class ViewController: UIViewController {
             scoreLabel.text = "Score: \(score)"
         }
     }
+    var correctAnswers = 0
     var level = 1
     
     override func loadView() {
@@ -73,6 +74,8 @@ class ViewController: UIViewController {
         
         let buttonsView = UIView()
         buttonsView.translatesAutoresizingMaskIntoConstraints = false
+        buttonsView.layer.borderWidth = 1
+        buttonsView.layer.borderColor = UIColor.gray.cgColor
         view.addSubview(buttonsView)
         
         NSLayoutConstraint.activate([
@@ -185,17 +188,31 @@ class ViewController: UIViewController {
             answersLabel.text = splitAnswers?.joined(separator: "\n")
 
             currentAnswer.text = ""
+            correctAnswers += 1
             score += 1
 
-            if score % 7 == 0 {
+            if correctAnswers % 7 == 0 {
                 let ac = UIAlertController(title: "Well done!", message: "Are you ready for the next level?", preferredStyle: .alert)
                 ac.addAction(UIAlertAction(title: "Let's go!", style: .default, handler: levelUp))
                 present(ac, animated: true)
             }
+        } else {
+            let ac = UIAlertController(title: "Nope!", message: "That's not the right answer.", preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "OK", style: .default, handler: clearAfterWrongAnswer))
+            present(ac, animated: true)
         }
     }
 
     @objc func clearTapped(_ sender: UIButton) {
+        clear()
+    }
+    
+    func clearAfterWrongAnswer(action: UIAlertAction) {
+        score -= 1
+        clear()
+    }
+    
+    func clear() {
         currentAnswer.text = ""
 
         for btn in activatedButtons {
