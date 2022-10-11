@@ -19,6 +19,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HUE-kL-POI">
                                 <rect key="frame" x="83" y="100" width="224" height="114"/>
                                 <rect key="contentStretch" x="0.0" y="1" width="1" height="1"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="HUE-kL-POI" secondAttribute="height" multiplier="112:57" id="niT-7s-KwU"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="us"/>
                                 <connections>
@@ -28,6 +31,9 @@
                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wp3-Nl-WIC">
                                 <rect key="frame" x="83" y="388" width="224" height="114"/>
                                 <rect key="contentStretch" x="0.0" y="1" width="1" height="1"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="wp3-Nl-WIC" secondAttribute="height" multiplier="112:57" id="jh5-Xe-p8C"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="us"/>
                                 <connections>
@@ -37,6 +43,9 @@
                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Kg-OG-LtX">
                                 <rect key="frame" x="83" y="244" width="224" height="114"/>
                                 <rect key="contentStretch" x="0.0" y="1" width="1" height="1"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="6Kg-OG-LtX" secondAttribute="height" multiplier="112:57" id="7NE-PR-hWz"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="us"/>
                                 <connections>
@@ -47,12 +56,15 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="wp3-Nl-WIC" firstAttribute="height" secondItem="6Kg-OG-LtX" secondAttribute="height" id="4zG-v4-ZP2"/>
                             <constraint firstItem="wp3-Nl-WIC" firstAttribute="centerX" secondItem="6Kg-OG-LtX" secondAttribute="centerX" id="7b7-oj-vf0"/>
                             <constraint firstItem="HUE-kL-POI" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="9iD-N7-2Jb"/>
                             <constraint firstItem="wp3-Nl-WIC" firstAttribute="top" secondItem="6Kg-OG-LtX" secondAttribute="bottom" constant="30" id="C5K-nX-oPK"/>
                             <constraint firstItem="HUE-kL-POI" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="9" id="O8O-ny-GJp"/>
                             <constraint firstItem="6Kg-OG-LtX" firstAttribute="top" secondItem="HUE-kL-POI" secondAttribute="bottom" constant="30" id="SwK-CF-zyX"/>
                             <constraint firstItem="6Kg-OG-LtX" firstAttribute="centerX" secondItem="HUE-kL-POI" secondAttribute="centerX" id="U5C-Ui-lk4"/>
+                            <constraint firstItem="6Kg-OG-LtX" firstAttribute="height" secondItem="HUE-kL-POI" secondAttribute="height" id="nV1-FL-1Ge"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="wp3-Nl-WIC" secondAttribute="bottom" constant="20" id="oY7-4b-jk1"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="qtf-nX-8NZ"/>
