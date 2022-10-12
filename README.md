@@ -12,3 +12,5 @@ Code and projects for [Hacking With Swift's 100 Days of Swift](https://www.hacki
 - **Project 6a:** Auto Layout: _See Project 2_
 - **Project 6b:** Auto Layout Visual Format Language (VFL)
 - **Project 7:** White House petitions
+- **Project 8:** 7 Swifty Words
+- **Project 9:** Grand Central Dispatch _See Projects 1, 7, and 8_
