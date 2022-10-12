@@ -27,14 +27,16 @@ class ViewController: UITableViewController {
             urlString = "https://www.hackingwithswift.com/samples/petitions-2.json"
         }
         
-        if let url = URL(string: urlString) {
-            if let data = try? Data(contentsOf: url) {
-                parse(json: data)
-                return
+        DispatchQueue.global(qos: .userInitiated).async {
+            if let url = URL(string: urlString) {
+                if let data = try? Data(contentsOf: url) {
+                    parse(json: data)
+                    return
+                }
             }
+
+            self.showError()
         }
-        
-        showError()
         
         func parse(json: Data) {
             let decoder = JSONDecoder()
@@ -42,7 +44,9 @@ class ViewController: UITableViewController {
             if let jsonPetitions = try? decoder.decode(Petitions.self, from: json) {
                 petitions = jsonPetitions.results
                 displayedPetitions = petitions
-                tableView.reloadData()
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
             }
         }
         
@@ -67,9 +71,11 @@ class ViewController: UITableViewController {
     }
     
     func showError() {
-        let ac = UIAlertController(title: "Loading error", message: "There was a problem loading the feed; please check your connection and try again.", preferredStyle: .alert)
-        ac.addAction(UIAlertAction(title: "OK", style: .default))
-        present(ac, animated: true)
+        DispatchQueue.main.async {
+            let ac = UIAlertController(title: "Loading error", message: "There was a problem loading the feed; please check your connection and try again.", preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "OK", style: .default))
+            self.present(ac, animated: true)
+        }
     }
     
     @objc func showCredits() {
@@ -95,10 +101,14 @@ class ViewController: UITableViewController {
     
     func search(_ searchTerm: String) {
         let lowerTerm = searchTerm.lowercased()
-    
-        displayedPetitions = petitions.filter { $0.title.lowercased().contains(lowerTerm) || $0.body.lowercased().contains(lowerTerm) }
+        
+        DispatchQueue.global(qos: .userInitiated).async {
+            self.displayedPetitions = self.petitions.filter { $0.title.lowercased().contains(lowerTerm) || $0.body.lowercased().contains(lowerTerm) }
+        }
 
-        tableView.reloadData()
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
     }
 
 }
