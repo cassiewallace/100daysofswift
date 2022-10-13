@@ -17,4 +17,4 @@ Code and projects for [Hacking With Swift's 100 Days of Swift](https://www.hacki
 - **Project 8:** 7 Swifty Words
 - **Project 9:** Grand Central Dispatch _See Projects 1, 7, and 8_
 - **Challenge 3:** Hangman
-- **Project 10:** Names to Faces
+- **Project 10:** Names to Faces _See also Project 1_
