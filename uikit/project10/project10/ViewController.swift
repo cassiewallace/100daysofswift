@@ -39,6 +39,11 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
 		return cell
 	}
 
+	override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+		let person = people[indexPath.item]
+        promptOptions(person)
+	}
+
 	@objc func addNewPerson() {
 		let picker = UIImagePickerController()
 		picker.allowsEditing = true
@@ -63,14 +68,26 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
 		dismiss(animated: true)
 	}
 
-	override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-		let person = people[indexPath.item]
+	func getDocumentsDirectory() -> URL {
+		let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+		let documentsDirectory = paths[0]
+		return documentsDirectory
+	}
+ 
+    func promptOptions(_ person: Person) {
+		let ac = UIAlertController(title: person.name, message: nil, preferredStyle: .actionSheet)
+        ac.addAction(UIAlertAction(title: "Rename", style: .default) { action in self.promptRename(person) })
+		ac.addAction(UIAlertAction(title: "Delete", style: .destructive) { action in self.promptDelete(person) })
+		ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
 
-		let ac = UIAlertController(title: "Rename person", message: nil, preferredStyle: .alert)
+		present(ac, animated: true)
+    }
+ 
+    func promptRename(_ person: Person) {
+		let ac = UIAlertController(title: "Rename \(person.name)", message: nil, preferredStyle: .alert)
 		ac.addTextField()
 
 		ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
-
 		ac.addAction(UIAlertAction(title: "OK", style: .default) { [unowned self, ac] _ in
 			let newName = ac.textFields![0]
 			person.name = newName.text!
@@ -79,11 +96,24 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
 		})
 
 		present(ac, animated: true)
-	}
+    }
+    
+    func promptDelete(_ person: Person) {
+		let ac = UIAlertController(title: "Delete \(person.name)", message: "Are you sure? This can't be undone.", preferredStyle: .alert)
+        
+		ac.addAction(UIAlertAction(title: "OK", style: .default) { action in self.delete(person) })
+		ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
 
-	func getDocumentsDirectory() -> URL {
-		let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-		let documentsDirectory = paths[0]
-		return documentsDirectory
-	}
+		present(ac, animated: true)
+    }
+    
+    func delete(_ person: Person) {
+        if let index = people.firstIndex(where: { $0.id == person.id }) {
+            people.remove(at: index)
+            collectionView.reloadData()
+        } else {
+            print("Delete failed")
+        }
+    }
+    
 }
