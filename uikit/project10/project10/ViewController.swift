@@ -46,8 +46,12 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
 
 	@objc func addNewPerson() {
 		let picker = UIImagePickerController()
-		picker.allowsEditing = true
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.camera) {
+            picker.sourceType = .camera
+        }
+        picker.allowsEditing = true
 		picker.delegate = self
+        
 		present(picker, animated: true)
 	}
 
@@ -64,7 +68,7 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
 		let person = Person(name: "Unknown", image: imageName)
 		people.append(person)
 		collectionView?.reloadData()
-
+        
 		dismiss(animated: true)
 	}
 
@@ -79,19 +83,17 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
         ac.addAction(UIAlertAction(title: "Rename", style: .default) { action in self.promptRename(person) })
 		ac.addAction(UIAlertAction(title: "Delete", style: .destructive) { action in self.promptDelete(person) })
 		ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
-
+        
 		present(ac, animated: true)
     }
  
     func promptRename(_ person: Person) {
 		let ac = UIAlertController(title: "Rename \(person.name)", message: nil, preferredStyle: .alert)
 		ac.addTextField()
-
 		ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
 		ac.addAction(UIAlertAction(title: "OK", style: .default) { [unowned self, ac] _ in
 			let newName = ac.textFields![0]
 			person.name = newName.text!
-
 			self.collectionView?.reloadData()
 		})
 
@@ -100,7 +102,6 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
     
     func promptDelete(_ person: Person) {
 		let ac = UIAlertController(title: "Delete \(person.name)", message: "Are you sure? This can't be undone.", preferredStyle: .alert)
-        
 		ac.addAction(UIAlertAction(title: "OK", style: .default) { action in self.delete(person) })
 		ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
 

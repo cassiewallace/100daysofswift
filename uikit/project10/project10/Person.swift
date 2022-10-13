@@ -8,7 +8,6 @@
 import UIKit
 
 class Person: NSObject {
-
     // MARK: Var(s)
     var name: String
     var image: String
@@ -20,5 +19,4 @@ class Person: NSObject {
         self.image = image
         self.id = UUID()
     }
-    
 }
