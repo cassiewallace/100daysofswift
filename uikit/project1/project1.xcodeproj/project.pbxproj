@@ -24,6 +24,7 @@
 		CB80738228F0B58E00D591EA /* nssl0033.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CB80737828F0B58E00D591EA /* nssl0033.jpg */; };
 		CB80738328F0B58E00D591EA /* nssl0034.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CB80737928F0B58E00D591EA /* nssl0034.jpg */; };
 		CB80738528F0BBE100D591EA /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB80738428F0BBE100D591EA /* DetailViewController.swift */; };
+		CBA3E51128F85A6F00C40F95 /* PictureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA3E51028F85A6F00C40F95 /* PictureCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		CB80737828F0B58E00D591EA /* nssl0033.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = nssl0033.jpg; sourceTree = "<group>"; };
 		CB80737928F0B58E00D591EA /* nssl0034.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = nssl0034.jpg; sourceTree = "<group>"; };
 		CB80738428F0BBE100D591EA /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		CBA3E51028F85A6F00C40F95 /* PictureCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 				CB80734628F0AC5600D591EA /* AppDelegate.swift */,
 				CB80734828F0AC5600D591EA /* SceneDelegate.swift */,
 				CB80734A28F0AC5600D591EA /* ViewController.swift */,
+				CBA3E51028F85A6F00C40F95 /* PictureCell.swift */,
 				CB80738428F0BBE100D591EA /* DetailViewController.swift */,
 				CB80734C28F0AC5600D591EA /* Main.storyboard */,
 				CB80734F28F0AC5900D591EA /* Assets.xcassets */,
@@ -191,6 +194,7 @@
 			files = (
 				CB80734B28F0AC5600D591EA /* ViewController.swift in Sources */,
 				CB80734728F0AC5600D591EA /* AppDelegate.swift in Sources */,
+				CBA3E51128F85A6F00C40F95 /* PictureCell.swift in Sources */,
 				CB80734928F0AC5600D591EA /* SceneDelegate.swift in Sources */,
 				CB80738528F0BBE100D591EA /* DetailViewController.swift in Sources */,
 			);

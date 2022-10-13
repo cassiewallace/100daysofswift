@@ -5,6 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -23,10 +24,10 @@
                         <viewLayoutGuide key="safeArea" id="wwf-SZ-BYn"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="uP4-Zo-bTn" firstAttribute="top" secondItem="zfg-Rl-Mi7" secondAttribute="topMargin" constant="-47" id="ChX-wm-t4C"/>
                             <constraint firstItem="uP4-Zo-bTn" firstAttribute="centerX" secondItem="zfg-Rl-Mi7" secondAttribute="centerX" id="T92-Mb-rNJ"/>
                             <constraint firstItem="uP4-Zo-bTn" firstAttribute="centerY" secondItem="zfg-Rl-Mi7" secondAttribute="centerY" id="Uve-hY-oXo"/>
-                            <constraint firstItem="uP4-Zo-bTn" firstAttribute="leading" secondItem="wwf-SZ-BYn" secondAttribute="leading" id="rUC-ew-Joy"/>
+                            <constraint firstItem="uP4-Zo-bTn" firstAttribute="leading" secondItem="zfg-Rl-Mi7" secondAttribute="leading" id="rUC-ew-Joy"/>
+                            <constraint firstItem="uP4-Zo-bTn" firstAttribute="top" secondItem="zfg-Rl-Mi7" secondAttribute="top" id="x78-Hm-YnX"/>
                         </constraints>
                     </view>
                     <connections>
@@ -38,42 +39,53 @@
             <point key="canvasLocation" x="1416.9230769230769" y="-269.43127962085305"/>
         </scene>
         <!--View Controller-->
-        <scene sceneID="mUK-2B-fIp">
+        <scene sceneID="WCt-N1-d98">
             <objects>
-                <tableViewController id="8mP-Yq-qaf" customClass="ViewController" customModule="project1" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="Ros-4D-ukp">
+                <collectionViewController id="2Ao-va-5Am" customClass="ViewController" customModule="project1" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="NhQ-se-lUX">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Picture" textLabel="MA3-vm-c7C" style="IBUITableViewCellStyleDefault" id="oQE-c3-mKv">
-                                <rect key="frame" x="0.0" y="50" width="390" height="43.666667938232422"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="oQE-c3-mKv" id="qsq-2f-see">
-                                    <rect key="frame" x="0.0" y="0.0" width="359.66666666666669" height="43.666667938232422"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="hjX-RB-HaT">
+                            <size key="itemSize" width="180" height="120"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Picture" id="P5a-2U-dtc" customClass="PictureCell" customModule="project1" customModuleProvider="target">
+                                <rect key="frame" x="10" y="10" width="180" height="120"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" insetsLayoutMarginsFromSafeArea="NO" id="OEm-Fd-HWk">
+                                    <rect key="frame" x="0.0" y="0.0" width="180" height="120"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="MA3-vm-c7C">
-                                            <rect key="frame" x="20" y="0.0" width="331.66666666666669" height="43.666667938232422"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Io1-Cq-ego">
+                                            <rect key="frame" x="0.0" y="0.0" width="180" height="120"/>
+                                        </imageView>
                                     </subviews>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
+                                    <constraints>
+                                        <constraint firstItem="Io1-Cq-ego" firstAttribute="centerY" secondItem="OEm-Fd-HWk" secondAttribute="centerY" id="8hn-rt-LRE"/>
+                                        <constraint firstItem="Io1-Cq-ego" firstAttribute="leading" secondItem="OEm-Fd-HWk" secondAttribute="leading" id="Dqu-78-Wu9"/>
+                                        <constraint firstItem="Io1-Cq-ego" firstAttribute="top" secondItem="OEm-Fd-HWk" secondAttribute="top" id="Vna-pK-WIL"/>
+                                        <constraint firstItem="Io1-Cq-ego" firstAttribute="centerX" secondItem="OEm-Fd-HWk" secondAttribute="centerX" id="pKu-Dk-c9l"/>
+                                    </constraints>
+                                </collectionViewCellContentView>
+                                <connections>
+                                    <outlet property="imageView" destination="Io1-Cq-ego" id="OBS-3c-ZKY"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
                         <connections>
-                            <outlet property="dataSource" destination="8mP-Yq-qaf" id="j1d-Fm-kNs"/>
-                            <outlet property="delegate" destination="8mP-Yq-qaf" id="GtN-8T-nho"/>
+                            <outlet property="dataSource" destination="2Ao-va-5Am" id="Iaf-Uf-Gg4"/>
+                            <outlet property="delegate" destination="2Ao-va-5Am" id="HL4-W2-Mmj"/>
                         </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" id="L0I-LN-7Ae"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ts1-NN-1td" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                    </collectionView>
+                    <navigationItem key="navigationItem" id="95U-iW-HRX"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="W8B-Jo-aM9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="540" y="-269.43127962085305"/>
+            <point key="canvasLocation" x="473.84615384615381" y="-269.43127962085305"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="cw2-Ac-LR8">
@@ -86,7 +98,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="8mP-Yq-qaf" kind="relationship" relationship="rootViewController" id="6CU-d4-NDG"/>
+                        <segue destination="2Ao-va-5Am" kind="relationship" relationship="rootViewController" id="pNP-6G-5ZN"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a6h-nN-fcc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
